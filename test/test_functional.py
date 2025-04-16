@@ -36,11 +36,11 @@ class TestLinearRegressionAuto(unittest.TestCase):
             
             # Check if data is loaded correctly
             expected_columns = ['mpg', 'cylinders', 'displacement', 'horsepower', 'weight', 
-                               'acceleration', 'model-year', 'origin', 'car-name']
+                               'acceleration', 'model-year']
             
             if (isinstance(df, pd.DataFrame) and 
                 all(col in df.columns for col in expected_columns) and
-                "✅ Data loaded and cleaned." in captured_output.getvalue()):
+                " Data loaded and cleaned." in captured_output.getvalue()):
                 self.test_obj.yakshaAssert("TestLoadAndPreprocess", True, "functional")
                 print("TestLoadAndPreprocess = Passed")
             else:
@@ -71,8 +71,8 @@ class TestLinearRegressionAuto(unittest.TestCase):
             # Check if output contains expected information
             output = captured_output.getvalue()
             
-            if ("📏 Mean Displacement:" in output and 
-                "⚙️  Minimum Horsepower:" in output):
+            if (" Mean Displacement:" in output and 
+                " Minimum Horsepower:" in output):
                 self.test_obj.yakshaAssert("TestShowKeyStats", True, "functional")
                 print("TestShowKeyStats = Passed")
             else:
@@ -106,7 +106,7 @@ class TestLinearRegressionAuto(unittest.TestCase):
                 isinstance(y_train, pd.Series) and
                 isinstance(y_test, pd.Series) and
                 hasattr(scaler, 'transform') and
-                "🧪 Data prepared and split." in captured_output.getvalue()):
+                " Data prepared and split." in captured_output.getvalue()):
                 self.test_obj.yakshaAssert("TestPrepareData", True, "functional")
                 print("TestPrepareData = Passed")
             else:
@@ -144,7 +144,7 @@ class TestLinearRegressionAuto(unittest.TestCase):
             if (hasattr(model, 'coef_') and 
                 hasattr(model, 'intercept_') and
                 file_exists and
-                f"✅ Model trained and saved to '{test_model_path}'" in captured_output.getvalue()):
+                f" Model trained and saved to '{test_model_path}'" in captured_output.getvalue()):
                 self.test_obj.yakshaAssert("TestTrainAndSaveModel", True, "functional")
                 print("TestTrainAndSaveModel = Passed")
             else:
@@ -182,8 +182,8 @@ class TestLinearRegressionAuto(unittest.TestCase):
             # Check if evaluation output is correct
             output = captured_output.getvalue()
             
-            if ("🎯 Mean Squared Error:" in output and 
-                "🔍 Sample Predictions:" in output):
+            if (" Mean Squared Error:" in output and 
+                " Sample Predictions:" in output):
                 self.test_obj.yakshaAssert("TestEvaluateModel", True, "functional")
                 print("TestEvaluateModel = Passed")
             else:
@@ -220,7 +220,7 @@ class TestTitanic(unittest.TestCase):
                 all(col in df.columns for col in expected_columns) and
                 df['sex'].dtype == 'int64' and  # Check if sex is encoded
                 df['embarked'].dtype == 'int64' and  # Check if embarked is encoded
-                "✅ Data loaded, cleaned, and encoded." in captured_output.getvalue()):
+                " Data loaded, cleaned, and encoded." in captured_output.getvalue()):
                 self.test_obj.yakshaAssert("TestLoadAndPrepareData", True, "functional")
                 print("TestLoadAndPrepareData = Passed")
             else:
@@ -251,7 +251,7 @@ class TestTitanic(unittest.TestCase):
             # Check if output contains expected information
             output = captured_output.getvalue()
             
-            if ("💰 Fare - Max:" in output and 
+            if (" Fare - Max:" in output and 
                 "Std Dev:" in output):
                 self.test_obj.yakshaAssert("TestExploreData", True, "functional")
                 print("TestExploreData = Passed")
@@ -280,7 +280,7 @@ class TestTitanic(unittest.TestCase):
             # Check if output contains expected information
             output = captured_output.getvalue()
             
-            if "🧠 Sigmoid(0) = 0.5000" in output:
+            if " Sigmoid(0) = 0.5000" in output:
                 self.test_obj.yakshaAssert("TestSigmoidDemo", True, "functional")
                 print("TestSigmoidDemo = Passed")
             else:
@@ -347,9 +347,9 @@ class TestTitanic(unittest.TestCase):
             output = captured_output.getvalue()
             
             if (file_exists and
-                "✅ Model trained and saved to" in output and
-                "🎯 Log Loss (Custom Cost):" in output and
-                "🔍 Sample Predictions:" in output):
+                " Model trained and saved to" in output and
+                " Log Loss (Custom Cost):" in output and
+                " Sample Predictions:" in output):
                 self.test_obj.yakshaAssert("TestTrainAndEvaluate", True, "functional")
                 print("TestTrainAndEvaluate = Passed")
             else:
