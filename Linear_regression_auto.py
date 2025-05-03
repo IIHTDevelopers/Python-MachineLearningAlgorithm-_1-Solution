@@ -12,6 +12,7 @@ def load_and_preprocess(path):
     df.columns = df.columns.str.lower().str.strip()
     df = df.dropna()
     print("✅ Data loaded and cleaned.")
+    print(print(df.columns.tolist()))
     return df
 
 # Function 2: Show mean of displacement and min of horsepower
