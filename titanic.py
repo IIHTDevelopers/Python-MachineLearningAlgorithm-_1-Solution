@@ -21,6 +21,7 @@ def load_and_prepare_data(path="titanic.csv"):
     df['embarked'] = le_embarked.fit_transform(df['embarked'])
 
     print("✅ Data loaded, cleaned, and encoded.")
+    print(print(df.columns.tolist()))
     return df
 
 
@@ -36,7 +37,7 @@ def sigmoid_demo():
     z = 0
     sigmoid = 1 / (1 + np.exp(-z))
     print(f"\n🧠 Sigmoid(0) = {sigmoid:.4f}")
-
+    return sigmoid
 
 # Function 4: Custom cost function (Log Loss)
 def cost_function(y_true, y_pred_prob):
