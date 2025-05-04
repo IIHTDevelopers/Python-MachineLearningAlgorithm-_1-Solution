@@ -30,7 +30,7 @@ def explore_data(df):
     max_fare = df['fare'].max()
     std_fare = df['fare'].std()
     print(f"\n💰 Fare - Max: {max_fare}, Std Dev: {std_fare:.2f}")
-
+    return round(max_fare, 4), round(std_fare, 2)
 
 # Function 3: Sigmoid activation for a single value
 def sigmoid_demo():
