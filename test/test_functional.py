@@ -3,8 +3,8 @@ from test.TestUtils import TestUtils
 import pandas as pd
 import numpy as np
 import os
-from Linear_regression_auto import load_and_preprocess, prepare_data, train_and_save_model
-from titanic import load_and_prepare_data, explore_data, sigmoid_demo, cost_function
+from Linear_regression_auto import *
+from titanic import *
 
 
 class TestLinearRegressionAuto(unittest.TestCase):
